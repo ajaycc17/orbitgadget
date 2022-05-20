@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+{% block title %}Contact{% endblock title %} 
+{% block contactactive %} active {% endblock contactactive %}
+{% block metaDesc %}Contact us for queries regarding privacy policy, site terms, content issues, advertising, feedback or any other genuine concern. We are happy to help.{% endblock metaDesc %}
+{% block metatags %}/contact/{% endblock metatags %}
+{% block authblock %}OrbitGadget{% endblock authblock %}
+{% block ogurl %}/contact/{% endblock ogurl %}
+{% block ogtitle %}Contact{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}Contact{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}Contact{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "Contact",
+        "item": "https://orbitgadget.com/contact/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% block body %} 
+<!-- header -->
+<section class="text-white body-font mx-auto bg-gray-900">
+    <div class="px-2 md:px-4 2xl:px-36 py-8">
+        <div class="sm:w-3/4 mx-auto text-center">
+            <h1 class="text-2xl font-heads font-bold pb-2 text-yellow-400">Contact</h1>
+            <p class="font-medium pb-4">Contact us for queries regarding privacy policy, site terms, content issues, advertising, feedback or any other genuine concern. We are happy to help.</p>
+            <p class="mb-0">
+                <a href="/">
+                    <button type="button" class="px-3 py-2 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-green-400 hover:bg-green-500">Back to Home</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+<!--page-body-->
+<div class="body-font mx-auto bg-gray-800">
+    <main class="og-content px-2 md:px-4 2xl:px-60 py-8 md:py-12 text-white">
+        <p>
+            Feel free to contact us at OrbitGadget using the form below for any general query regarding the site, to report technical problems, and inquires related to promotion or collaboration. We respond to valid queries in an elaborate manner. We are happy to get connected to you.
+        </p>
+        <p>
+            If you have any suggestions, questions, or feedback regarding this site, please sum it up and contact us using the form below. We value all of our readers and their suggestions. We will try to get back to you within a day.
+        </p>
+        <form method="post" action="/contact/" class="mb-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="block mb-2 text-sm font-medium text-sky-400">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" class="border-gray-700 text-sm rounded-lg block w-full p-2.5 bg-gray-700 placeholder-gray-300 text-white" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="block mb-2 text-sm font-medium text-sky-400">Email ID</label>
+                <input type="email" id="email" name="email" aria-describedby="emailHelp" class="border-gray-700 text-sm rounded-lg block w-full p-2.5 bg-gray-700 placeholder-gray-300 text-white" placeholder="name@example.com" required>
+                <div id="emailHelp" class="text-xs pt-1">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="block mb-2 text-sm font-medium text-sky-400">Your Phone</label>
+                <input type="tel" id="phone" name="phone" aria-describedby="phoneHelp" class="border-gray-700 text-sm rounded-lg block w-full p-2.5 bg-gray-700 placeholder-gray-300 text-white" placeholder="+91 9876543210" required>
+                <div id="phoneHelp" class="text-xs pt-1">We'll never share your phone number with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="block mb-2 text-sm font-medium text-sky-400">Your message</label>
+                <textarea id="message" name="message" rows="4" aria-describedby="messageHelp" class="block p-2.5 w-full text-sm  rounded-lg border-gray-700 bg-gray-700 placeholder-gray-300 text-white" placeholder="Write your message here..." required></textarea>
+                <div id="messageHelp" class="text-xs pt-1">Please try to be clear, precise and meaningful.</div>
+            </div>
+            <div class="mb-3">
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6LfRdNgZAAAAAA_OAKLokMgfTc6-tM0J0XRJaLvi"></div>
+            </div>
+            <button type="submit" class="px-3 py-1 rounded-xl font-semibold bg-green-400 hover:bg-green-500 text-sm text-black">Submit →</button>
+        </form>
+        <p>
+            Please try to be as detailed as possible in your email if you are asking a question or reporting a problem, such that we can reply to you with an appropriate and meaningful answer to your questions.
+        </p>
+        <p>
+            Please be patient after sending an email to us, we always reply to emails, but it may take some time to get back to you (at most 24 hrs.). Kindly wait for our reply before sending another email. If you want to know more about this site’s working principles head to <a href="/privacy-policy">Privacy Policy</a> and <a href="/site-terms">Site-terms</a>.
+        </p>
+        <p>
+            We really appreciate your support for OrbitGadget and we urge you to continue exploring OrbitGadget and consider subscribing to our notifications to stay updated.
+        </p>
+    </main>
+</div>
+{% endblock body %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{% block head_title %}{% endblock %}{% endblock title %}
+{% block metaDesc %}OrbitGadget is a tech and study-oriented site and blog for geeks, learners and tech enthusiasts. We always love being surrounded by gadgets, codes, algorithms and ideas.{% endblock metaDesc %}
+{% block schemaBlock %}
+  {% block extra_head %}
+  {% endblock %}
+{% endblock schemaBlock %}
+{% block body %}
+<div class="text-white og-auth px-2 md:px-4 xl:px-36 mx-auto py-8">
+  {% block content %}
+  {% endblock %}
+</div>
+{% endblock %}
+  {% block extra_body %}
+  {% endblock %}

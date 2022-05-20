@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}404: Not Found{% endblock title %}
+{% block body %}
+<main class="bg-gray-800 mx-auto">
+    <div class="px-2 md:px-4 2xl:px-60 py-16 md:py-24">
+        <img src="{% static 'images/404.png' %}" alt="404" class="mx-auto" width="200px" height="auto">
+        <h1 class="text-2xl mt-3 font-heads font-semibold text-yellow-400 text-center">
+            404! PAGE NOT FOUND
+        </h1>
+        <div class="my-2 flex justify-center">
+            <a href="/">
+                <button type="button" class="bg-green-400 hover:bg-green-500 text-black px-3 py-1 text-sm font-heads font-semibold rounded-lg mr-2">← Home</button>
+            </a>
+            <a href="/blog">
+                <button type="button" class="bg-green-400 hover:bg-green-500 text-black px-3 py-1 text-sm font-heads font-semibold rounded-lg">Blog →</button>
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock body %}

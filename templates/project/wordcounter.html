@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Word Counter{% endblock title %}
+{% block projectsactive %}active{% endblock projectsactive %}
+{% block metaDesc %}A word counter app based on JavaScript, where you can type your text and get an idea about the word count.{% endblock metaDesc %}
+{% block metatags %}/projects/wordcounter/{% endblock metatags %}
+{% block authblock %}Ajay Choudhury{% endblock authblock %}
+{% block ogurl %}/projects/wordcounter/{% endblock ogurl %}
+{% block ogtitle %}Word Counter{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}Word Counter{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}Word Counter{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "Projects",
+        "item": "https://orbitgadget.com/projects/"  
+    },{
+        "@type": "ListItem", 
+        "position": 3, 
+        "name": "Word Counter",
+        "item": "https://orbitgadget.com/projects/wordcounter/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% block body %}
+<div class="mx-auto">
+    <main class="px-2 md:px-4 2xl:px-60 py-8 md:py-12 text-white">
+        <h1 class="text-xl font-heads font-bold text-yellow-400 text-center">Word Counter</h1>
+        <p class="text-center pt-2 pb-3">Get a real-time idea about the wordcount while you write ✍️.</p>
+        <img src="{% static 'images/word-count.png' %}" alt="Word Counter" class="mx-auto" width="120px" height="auto">
+        <div class="mx-auto d-block my-6">
+            <textarea name='text' id="thetextarea" rows="18" class="block p-2.5 w-full text-sm rounded-lg placeholder-gray-300 text-white bg-gray-900 border-0" placeholder="Your text..."></textarea>
+            <!-- Word Counter -->
+            <p class="">
+                <div class="flex justify-between items-center font-semibold font-heads text-yellow-400">
+                    <span><span id="wordCount">0</span> Words</span>
+                    <span><span id="charcount">0</span> Characters</span>
+                </div>
+                <script type="text/javascript">
+                    var thetextarea = document.getElementById("thetextarea");
+                    var wordCount = document.getElementById("wordCount");
+                    thetextarea.addEventListener("keyup",function(){
+                        var words = thetextarea.value.split(' ').join('\n').split('\n');
+                        var characters = thetextarea.value.split('');
+                        // remove newline characters
+                        for(var i=0;i<characters.length;i++){
+                            if (characters[i]==="\n"){                    
+                                characters.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        // don't count unnecessary spaces
+                        for(var i=0;i<words.length;i++){
+                            if (words[i]===""){                    
+                                words.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        wordCount.innerText = words.length;
+                        charcount.innerText = characters.length;
+                    });
+                </script>
+            </p>
+        </div>
+        <!--alert-->
+        <div id="alert-additional-content-5" class="p-4 rounded-xl bg-gray-700" role="alert">
+            <div class="flex items-center">
+                <i class="fa-solid fa-circle-info mr-2 text-green-500"></i>
+                <h3 class="text-lg font-semibold font-heads text-yellow-400">More about Password Generator</h3>
+            </div>
+            <div class="mt-2 mb-4 text-white text-sm">
+                The detailed guide on building the 'Word Counter' is coming soon. It is made completely using JavaScript, you can create it too in a matter of minutes. Read more about the Word Counter by clicking the button below.
+            </div>
+            <a href="/blog/random-password-generator-in-python" class="text-sm font-semibold font-heads text-center text-black py-1 px-3 rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
+                Read →
+            </a>
+        </div>
+    </main>
+</div>
+{% endblock body %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %} 
+{% block title %}Projects{% endblock title %}
+{% block projectsactive %}active{% endblock projectsactive %}
+{% block metaDesc %}We love to cover various programming and development projects under the projects section.{% endblock metaDesc %}
+{% block metatags %}/projects/{% endblock metatags %}
+{% block authblock %}Ajay Choudhury{% endblock authblock %}
+{% block ogurl %}/projects/{% endblock ogurl %}
+{% block ogtitle %}Projects{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}Projects{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}Projects{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "Projects",
+        "item": "https://orbitgadget.com/projects/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% load static %}
+{% block body %}
+<!-- header -->
+<section class="text-white body-font mx-auto bg-gray-900">
+    <div class="px-2 md:px-4 2xl:px-36 py-8">
+        <div class="sm:w-3/4 mx-auto text-center">
+            <h1 class="text-2xl font-heads font-bold pb-2 text-yellow-400">Projects Created by Me</h1>
+            <p class="font-medium pb-4">I keep uploading my projects here, you can browse through them and their docs...</p>
+            <p class="mb-0">
+                <a href="/portfolio">
+                    <button type="button" class="px-3 py-2 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-green-400 hover:bg-green-500">Portfolio</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+<!-- main section -->
+<section class="body-font mx-auto bg-gray-800">
+    <div class="px-2 md:px-4 2xl:px-36 flex py-8 md:py-12 md:flex-row flex-col">
+        <div class="md:text-left mb-16 md:mb-0 w-full">
+            <h2 class="font-semibold font-heads uppercase text-lg text-yellow-400 mb-6">
+                <i class="bi bi-check-circle-fill text-lime-400 pr-2"></i>Projects
+            </h2>
+            <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-4 ">
+                <div class="p-4 rounded-2xl shadow-md bg-gray-900 flex flex-col h-full">
+                    <div class="flex items-center pb-3">
+                        <img src="{% static 'images/password-generator.png' %}" class="w-14 h-14 rounded-full p-1 bg-gray-800" alt="Password Generator">
+                        <h5 class="pl-3 text-md font-bold font-heads text-white">
+                            Password Generator
+                        </h5>
+                    </div>
+                    <div class="flex basis-auto grow shrink flex-col justify-between">
+                        <p class="mb-6 font-normal text-white">A random password generator made with Python.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="https://github.com/ajaycc17/password-generator" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="/projects/password-generator" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
+                                See →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl shadow-md bg-gray-900 flex flex-col h-full">
+                    <div class="flex items-center pb-3">
+                        <img src="{% static 'images/drum.png' %}" class="w-14 h-14 rounded-full p-1 bg-gray-800" alt="Drum Kit">
+                        <h5 class="pl-3 text-md font-bold font-heads text-white">
+                            Drum Kit
+                        </h5>
+                    </div>
+                    <div class="flex basis-auto grow shrink flex-col justify-between">
+                        <p class="mb-6 font-normal text-white">A drum kit simulation made using JS, playable with mouse or keyboard.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="/projects/drum-kit" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
+                                See →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl shadow-md bg-gray-900 flex flex-col h-full">
+                    <div class="flex items-center pb-3">
+                        <img src="{% static 'images/wordcounter.png' %}" class="w-14 h-14 rounded-full p-1 bg-gray-800" alt="Word Counter">
+                        <h5 class="pl-3 text-md font-bold font-heads text-white">
+                            Word Counter
+                        </h5>
+                    </div>
+                    <div class="basis-auto grow shrink flex-col justify-between flex">
+                        <p class="mb-6 font-normal text-white">A web application made with JavaScript to count words.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="/projects/wordcounter/" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
+                                See →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}

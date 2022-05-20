@@ -1,0 +1,358 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load extras %}
+{% block title %}{{post.title}}{% endblock title %} 
+{% block blogactive %} active {% endblock blogactive %}
+{% block metaDesc %}{{post.content|safe|truncatechars:157}}{% endblock metaDesc %}
+{% block metatags %}/blog/{{post.slug}}/{% endblock metatags %}
+{% block authblock %}Ajay Choudhury{% endblock authblock %}
+{% block ogurl %}/blog/{{post.slug}}/{% endblock ogurl %}
+{% block ogtitle %}{{post.title|title}}{% endblock ogtitle %}
+{% block ogthumb %}{{post.thumbnail.url}}{% endblock ogthumb %}
+{% block ogthumbalt %}{{post.title|title}}{% endblock ogthumbalt %}
+{% block twimage %}{{post.thumbnail.url}}{% endblock twimage %}
+{% block twimalt %}{{post.title|title}}{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://orbitgadget.com/blog/{{post.slug}}/"
+    },
+    "headline": "{{post.title|title}}",
+    "description": "{{post.content|safe|truncatechars:157}}",
+    "image": "{{post.thumbnail.url}}",  
+    "author": {
+      "@type": "Person",
+      "name": "Ajay Choudhury",
+      "url": "https://orbitgadget.com/about/"
+    },  
+    "publisher": {
+      "@type": "Organization",
+      "name": "OrbitGadget",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://api.orbitgadget.com/orbitfiles/staticfiles/images/logo.svg"
+      }
+    },
+    "datePublished": "{{post.timeStamp|date:"Y"}}-{{post.timeStamp|date:"m"}}-{{post.timeStamp|date:"d"}}",
+    "dateModified": "{{post.timeStamp|date:"Y"}}-{{post.timeStamp|date:"m"}}-{{post.timeStamp|date:"d"}}"
+  },
+  {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home",
+      "item": "https://orbitgadget.com/"  
+    },{
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Blog",
+      "item": "https://orbitgadget.com/blog/"  
+    },{
+      "@type": "ListItem", 
+      "position": 3, 
+      "name": "{{post.category|capfirst}}",
+      "item": "https://orbitgadget.com/blog/{{post.category}}/"  
+    },{
+      "@type": "ListItem", 
+      "position": 4, 
+      "name": "{{post.title|title}}",
+      "item": "https://orbitgadget.com/blog/{{post.slug}}/"  
+    }]
+  }]
+</script>
+{% endblock schemaBlock %}
+{% block body %}
+<!-- post-header -->
+<section class="body-font mx-auto">
+  <div class="px-2 md:px-4 2xl:px-36 pt-6 text-left">
+    <!--breadcrumb-->
+    <div>
+      <nav>
+        <ol class="inline-block mb-2 text-sm font-heads text-sky-400">
+          <span class="font-medium pr-1"><a href="/">Home</a></span>
+          <strong>•</strong>
+          <span class="font-medium px-1"><a href="/blog">Blog</a></span>
+          <strong>•</strong>
+          <span class="font-medium pl-1"><a href="/blog/{{post.category}}">{{post.category|capfirst}}</a></span>
+        </ol>
+      </nav>
+      <h1 class="text-2xl font-heads font-semibold mb-2 text-white">{{post.title}}</h1>
+      <div class="text-gray-400 font-heads mb-3">
+        {{post.content|safe|truncatewords:33}}
+      </div>
+      <div class="font-heads">
+        <div class="font-medium text-gray-300 text-sm">
+          <a href="/about">
+            <span class="text-lime-400">{{post.author}}</span>
+          </a>
+          <strong>•</strong>
+          <span class="ml-1">{{post.timeStamp|date:"d M, Y"}}</span>
+          <strong>•</strong>
+          <span class="ml-1">{{readTime}} mins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--post-content-->
+<section class="body-font mx-auto">
+  <div class="px-2 md:px-4 2xl:px-36 flex pt-2 md:flex-row flex-col">
+    <div class="lg:flex-grow md:w-2/3 md:pr-4 lg:pr-6 flex flex-col md:items-start md:text-left">
+      <!--post image-->
+      <div class="mb-3">
+        <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="w-full">
+      </div>
+      <article class="pt-2 og-content text-white">
+        {{post.content|safe}}
+      </article>
+      <!-- anonymous likes for article -->
+      <div class="my-3 py-2">
+        <form action="" method="post">
+          <span class="font-semibold text-xl font-heads mr-3 text-white">Was this Article Helpful?</span>
+          {% csrf_token %}
+          <input type="hidden" name="path" value="{{request.path}}">
+          <button class="rounded-md bg-yellow-400 mr-2 py-1 px-2 font-medium" type="submit" value="on" name="liker">
+            <i class="fa-solid fa-thumbs-up text-xl"></i>
+          </button>
+          <button class="rounded-md bg-yellow-400 py-1 px-2 font-medium" type="submit" value="on" name="disliker">
+            <i class="fa-solid fa-thumbs-down text-xl"></i>
+          </button>
+        </form>
+      </div>
+      <!-- author section -->
+      <section class="py-4 border-y-2 border-dashed border-gray-600">
+        <div class="bg-gray-900 p-4 flex flex-col sm:flex-row gap-x-4 rounded-xl">
+          <div class="flex md:w-1/6 sm:w-1/5 items-center justify-between">
+            <img class="rounded-full block mx-auto pb-2 sm:pb-0" src="{% static 'images/Ajay Choudhury.jpg' %}" alt="{{post.author}}" width="100px" height="auto">
+          </div>
+          <div class="md:w-5/6 sm:w-4/5">
+            <div>
+              <div class="font-heads font-semibold pb-2 flex flex-col sm:flex-row justify-between items-center">
+                <h4 class="text-lg mb-0 text-sky-400">{{post.author}}</h4>
+                <span class="text-lg">
+                  <a class="text-white hover:text-sky-500" href="https://twitter.com/ajaycc17">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a class="pl-2 text-white hover:text-blue-600" href="https://linkedin.com/in/ajaycc17">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a class="pl-2 text-white hover:text-gray-400" href="https://github.com/ajaycc17">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </span> 
+              </div>
+              <p class="mb-0 text-center sm:text-left text-white">A learner and a student of technlogy. He loves sharing experiences and learning with others through his projects and blog. Along with technology, he loves playing football and enjoys listening to music and podcasts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- post-navigation -->
+      <section class="py-4 w-full border-b-2 border-dashed border-gray-600">
+        <div class="flex flex-col sm:flex-row gap-2">
+          <div class="w-full sm:w-1/2">
+          {% if prevPost is not None %}
+            <a href="/blog/{{prevPost.slug}}" class="text-white hover:text-sky-400">
+              <div class="py-4 h-full bg-gray-900 rounded-xl p-3 flex flex-col items-start justify-between">
+                <p class="font-semibold mb-2">{{prevPost.title}}</p>
+                <div type="button" class="py-0.5 px-3 rounded-xl font-semibold text-black bg-yellow-400">← Previous</div>
+              </div>
+            </a>
+          {% endif %}
+          </div>
+          <div class="w-full sm:w-1/2">
+          {% if nextPost is not None %}
+            <a href="/blog/{{nextPost.slug}}" class="text-white hover:text-sky-400">
+              <div class="py-4 h-full bg-gray-900 rounded-xl p-3 flex flex-col items-end justify-between">
+                <p class="font-semibold mb-2 text-right">{{nextPost.title}}</p>
+                <div type="button" class="py-0.5 px-3 rounded-xl font-semibold text-black bg-yellow-400">Next →</div>
+              </div>
+            </a>
+          {% endif %}
+          </div>
+        </div>
+      </section>
+      <!-- comments section -->
+      <section class="comments w-full text-white">
+        <div class="flex items-center justify-between py-3 border-b-2 border-dashed border-gray-600">
+          <h3 class="text-xl font-semibold font-heads mb-0">
+            <i class="fa-solid fa-comment-dots text-yellow-400"></i> {{comments.count}} Comments
+          </h3>
+          <a href="/site-terms">
+            <div class="flex items-center text-yellow-400">
+              <i class="fa-solid fa-circle-exclamation pr-1"></i>
+              <span class="font-semibold text-gray-300">Info</span>
+            </div>
+          </a>
+        </div>
+        <!--comments-field-->
+        <div class="mt-3 mb-8">
+          {% if user.is_authenticated %}
+          <form action="/blog/postComment/" method="post">
+            {% csrf_token %}
+            <div class="mt-4 mb-2">
+              <textarea id="comment" rows="3" class="block p-2.5 w-full text-sm rounded-lg border-gray-700 bg-gray-700 placeholder-gray-300 text-white" 
+              placeholder="Your comment here." name="comment" required></textarea>
+              <div class="text-xs pt-1">Please try to be clear, meaningful and precise in the comment. </div>
+            </div>
+            <input type="hidden" name="postSno" value="{{post.sno}}">
+            <input type="hidden" name="parentSno" value="">
+            <button type="submit" class="py-1 px-3 rounded-xl font-semibold bg-green-400 hover:bg-green-500 text-sm text-black">
+              Submit →
+            </button>
+          </form>
+          {% else %}
+          <div class="p-4 mb-6 rounded-xl bg-gray-700 text-white" role="alert">
+            Please <a href="/accounts/login/" class="font-semibold font-heads text-yellow-400">LOG IN</a> to continue the discussion.
+          </div>
+          {% endif %}
+        </div>
+        <!-- comments-display -->
+        {% for comment in comments %}
+        <div class="my-6">
+          <div class="flex items-start">
+            <div class="mr-2">
+              <img src="https://gravatar.com/avatar/{{ comment.user.email|md5 }}?d=wavatar" class="rounded-full"
+                alt="{{comment.user.username}}" width="35px" height="auto">
+            </div>
+            <div>
+              <small class="font-heads font-semibold text-sm mb-0 text-lime-400">{{comment.user.username}}</small>
+              &nbsp;&middot;&nbsp;
+              <small class="font-medium font-heads text-gray-400 text-xs">
+                {{comment.timeStamp|date:"d M, Y"}}
+              </small>
+              {% if user.is_authenticated %}
+              &nbsp;&middot;&nbsp;
+              <span type="button" class="openReply{{comment.sno}} cursor-pointer bg-gray-600 text-xs font-semibold mr-2 px-1 py-0.5 rounded text-white hover:bg-lime-400 hover:text-black font-heads"
+                onClick="opener('{{comment.sno}}')">
+                Reply
+              </span>
+              {% endif %}
+              <div class="pt-1 mb-1">
+                <p class="text-sm">{{comment.comment|capfirst}}</p>
+              </div>
+            </div>
+          </div>
+          <!--reply-fields-->
+          {% if user.is_authenticated %}
+          <div class="hidden" id="replyBox{{comment.sno}}">
+            <div class="py-2">
+              <form action="/blog/postComment/" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <textarea rows="2"
+                    class="block p-2.5 w-full text-sm rounded-lg border-gray-700 bg-gray-700 placeholder-gray-300 text-white"
+                    placeholder="Your reply here." name="comment" required></textarea>
+                  <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                </div>
+                <input type="hidden" name="postSno" value="{{post.sno}}">
+                <button type="submit" class="px-3 py-1 rounded-xl font-semibold bg-green-400 hover:bg-green-500 text-sm text-black">
+                  Submit →
+                </button>
+              </form>
+            </div>
+          </div>
+          {% endif %}
+          <!-- replies-display -->
+          <div class="border-l-2 border-gray-500">
+            {% for reply in repDict|get_val:comment.sno %}
+            <div class="p-2 mt-1 ml-1">
+              <div class="flex items-start">
+                <div class="mr-2">
+                  <img src="https://gravatar.com/avatar/{{ reply.user.email|md5 }}?d=wavatar" class="rounded-full" alt="{{reply.user.username}}" width="35px" height="auto">
+                </div>
+                <div>
+                  <small class="font-heads font-semibold text-sm mb-0 text-lime-500">{{reply.user.username}}</small>
+                  &nbsp;&middot;&nbsp;
+                  <small class="font-medium font-heads text-gray-400 text-xs">
+                    {{comment.timeStamp|date:"d M, Y"}}
+                  </small>
+                  <div class="pt-1 mb-1">
+                    <p class="text-sm">{{reply.comment|capfirst}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+    </div>
+    <!-- sidebar -->
+    <div class="hidden md:block md:w-1/3 w-full w-max-lg">
+      <div class="sticky top-4">
+        <!-- recommended post -->
+        <div class="mb-4">
+          <h3 class="inline border-b-2 border-gray-300 border-dashed pb-1 text-lg font-heads font-semibold heads uppercase text-green-500">Recommended:</h3>
+          <div class="mt-3">
+            {% for recommend in recommended %}
+            <a class="flex items-center py-2" href="/blog/{{recommend.slug}}">
+              <i class="fa-solid fa-circle-arrow-right pr-3 text-purple-500 text-xl"></i>
+              <p class="mb-0 fw-500 font-heads font-semibold lg:text-lg leading-5 text-white">{{recommend.title}}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- ad-orbitgadget-sidebar1 -->
+        <div class="mb-4">
+          <ins class="adsbygoogle sideAd"
+              style="display:block"
+              data-ad-client="ca-pub-7112659924280416"
+              data-ad-slot="9885391743"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <!-- categories -->
+        <div class="mb-4">
+          <h3 class="inline border-b-2 border-gray-300 border-dashed pb-1 text-lg font-heads font-semibold heads uppercase text-green-500">All Topics:</h3>
+          <div class="mt-3">
+            <p class="mb-0" style="line-height: 1.8em;">
+              {% for topic in topics %}
+                <a href="/blog/{{topic.title}}">
+                  <span class="text-sm font-semibold mr-2 px-2.5 py-0.5 rounded bg-gray-600 text-white hover:bg-yellow-400 hover:text-black">
+                    {{topic.title|capfirst}}
+                  </span>
+                </a>
+              {% endfor %}
+            </p>
+          </div>
+        </div>
+        <!-- ad-orbitgadget-sidebar2 -->
+        <div class="mb-4">
+          <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-7112659924280416"
+              data-ad-slot="7196768780"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock body %}
+{% block js %}
+<script>
+  function opener(comment_id){
+    var id = "replyBox" + String(comment_id);
+    var acc = document.getElementById(id);
+    if (acc.classList.contains("hidden")) {
+      acc.classList.remove("hidden");
+    } else {
+        acc.classList.add("hidden");
+    }
+  }
+</script>
+{% endblock js %}

@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <img src="{% static 'images/cross.png' %}" alt="Check" width="80px" height="auto" class="mx-auto mb-3">
+    <h1 class="text-xl text-yellow-400 text-center font-heads font-semibold mb-3">{% trans "Sign Up Closed" %}</h1>
+    <p class="text-center">
+        {% trans "We are sorry, but the sign up is currently closed." %}
+    </p>
+</div>
+{% endblock %}

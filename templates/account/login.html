@@ -1,0 +1,58 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+{% get_providers as socialaccount_providers %}
+{% load widget_tweaks %}
+<div>
+  <div class="overflow-y-auto overflow-x-hidden z-50 w-full md:inset-0 md:h-full justify-center items-center">
+    <div class="relative w-full max-w-md h-full md:h-auto mx-auto">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-900">
+        <div class="py-6 px-6 lg:px-8">
+          <h1 class="mb-4 text-xl font-semibold font-heads text-center text-white">
+            {% trans "Sign In" %} on OrbitGadget
+          </h1>
+          <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <div class="mb-6">
+              <label for="id_login" class="block mb-2 text-sm font-medium text-gray-300">Username</label>
+              {% render_field form.login class="text-sm rounded-lg block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white" %}
+              <div class="text-red-500 text-xs pt-1">{{ form.login.errors }}</div>
+            </div>
+            <div class="mb-6">
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-300">Your password</label>
+              {{ form.password|add_class:"text-sm rounded-lg block w-full p-2.5 bg-gray-700 dark:placeholder-gray-400 text-white" }}
+              <div class="text-red-500 text-xs pt-1">{{ form.password.errors|striptags }}</div>
+            </div>
+            <input type="hidden" name="next" value="{{ request.GET.next }}" />
+            <div class="flex justify-between mb-6">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  {{ form.remember|add_class:"w-4 h-4 rounded bg-gray-700" }}
+                </div>
+                <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+              </div>
+            <a href="{% url 'account_reset_password' %}" class="text-sm text-yellow-400">Lost Password?</a>
+            </div>
+            <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-700 focus:outline-none font-semibold rounded-lg px-5 py-2.5 text-center">Sign In</button>
+            {% if socialaccount_providers %}
+            <div class="socialaccount_ballot mt-2 mb-6">
+              <ul class="socialaccount_providers">
+                <button type="button" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none font-semibold rounded-lg px-5 py-2.5 text-center">
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </button>
+              </ul>          
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+            {%endif%}
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+            Not registered? <a href="{{ signup_url }}" class="text-yellow-400">Create account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

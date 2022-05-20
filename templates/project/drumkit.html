@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Drum Kit{% endblock title %}
+{% block projectsactive %}active{% endblock projectsactive %}
+{% block metaDesc %}A drum kit simulation, playable using mouse or keyboard. It is made from scratch using JavaScript, a fun project for beginners in JavaScript.{% endblock metaDesc %}
+{% block metatags %}/projects/drum-kit/{% endblock metatags %}
+{% block authblock %}Ajay Choudhury{% endblock authblock %}
+{% block ogurl %}/projects/drum-kit/{% endblock ogurl %}
+{% block ogtitle %}Drum Kit{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}Drum Kit{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}Drum Kit{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "Projects",
+        "item": "https://orbitgadget.com/projects/"  
+    },{
+        "@type": "ListItem", 
+        "position": 3, 
+        "name": "Drum Kit",
+        "item": "https://orbitgadget.com/projects/drum-kit/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% block body %}
+<div class="mx-auto">
+    <main class="px-2 md:px-4 2xl:px-60 py-8 md:py-12 text-white">
+        <h1 class="text-xl font-heads font-bold text-yellow-400 text-center">Drum Kit</h1>
+        <p class="text-center pt-2 pb-3">Play drums 🥁 with a touch or your keyboard.</p>
+        <img src="{% static 'images/drum-kit.png' %}" alt="Drum kit" class="mx-auto" width="120px" height="auto">
+        <div class="px-3 mx-auto block my-6">
+            <div class="text-center">
+                <button class="w drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">w</button>
+                <button class="a drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">a</button>
+                <button class="s drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">s</button>
+                <button class="d drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">d</button>
+                <button class="j drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">j</button>
+                <button class="k drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">k</button>
+                <button class="l drum p-6 border-2 border-gray-700 rounded-xl mr-3 text-2xl font-heads font-semibold bg-gray-900 text-green-500 uppercase hover:text-yellow-400">l</button>
+            </div>
+            <script src="{% static 'js/drumkit.js' %}"></script>
+        </div>
+        <!--alert-->
+        <div id="alert-additional-content-5" class="p-4 rounded-xl bg-gray-700 max-w-3xl block mx-auto" role="alert">
+            <div class="flex items-center">
+                <i class="fa-solid fa-circle-info mr-2 text-green-500"></i>
+                <h3 class="text-lg font-semibold font-heads text-yellow-400">More about Drum Kit</h3>
+            </div>
+            <div class="mt-2 mb-4 text-white text-sm">
+                The detailed guide on building the 'Drum Kit' is coming soon. It is made completely using JavaScript, you can create it too in a matter of minutes. Read more about the Drum Kit following the button below.
+            </div>
+            <a href="/blog/random-password-generator-in-python" class="text-sm font-semibold font-heads text-center text-black py-1 px-3 rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
+                Read →
+            </a>
+        </div>
+    </main>
+</div>
+{% endblock body %}

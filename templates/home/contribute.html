@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+{% block title %}Contribute{% endblock title %}
+{% block metaDesc %}If you liked our content and wish to thank us, you can consider supporting us with donations.{% endblock metaDesc %}
+{% block metatags %}/contribute/{% endblock metatags %}
+{% block authblock %}OrbitGadget{% endblock authblock %}
+{% block ogurl %}/contribute/{% endblock ogurl %}
+{% block ogtitle %}Contribute{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}Contribute{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}Contribute{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "Contribute",
+        "item": "https://orbitgadget.com/contribute/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% block body %} 
+<!-- header -->
+<section class="text-white body-font mx-auto bg-gray-900">
+    <div class="px-2 md:px-4 2xl:px-36 py-8">
+        <div class="sm:w-3/4 mx-auto text-center">
+            <h1 class="text-2xl font-heads font-bold pb-2 text-yellow-400">Contribute</h1>
+            <p class="font-medium pb-4">If you liked our content and wish to thank us, you can consider supporting us with donations.</p>
+            <p class="mb-0">
+                <a href="/portfolio">
+                    <button type="button" class="px-3 py-2 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-green-400 hover:bg-green-500">Portfolio</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+<!-- content section -->
+<div class="body-font mx-auto bg-gray-800">
+    <main class="og-content px-2 md:px-4 2xl:px-60 py-8 md:py-12 text-white">
+        <p>
+            If you like our content or our style of presentation and want to contribute some content through us to our readers, we whole-heartedly welcome you. If you feel you will be able to contribute quality contents through us to our readers you can <a href="/contact">contact us</a>, we will welcome you aboard.
+        </p>
+        <p>
+            You can also support and appreciate our work by donating a small amount on our PayTM or Google Pay. It won’t take even a minute! Be sure to include a message, we never forget to feature our supporters on our page. You ca scan the QR codes below to donate:
+        </p>
+        <p>
+            If you are unable to support us with money, it is not a problem at all, we value your love and appreciation more than money. You can still support us by:
+        </p>
+        <ul>
+            <li>Sharing our articles on your social media handles.</li>
+            <li>Commenting on our posts.</li>
+            <li>Following us on our Instagram and subscribing us on YouTube.</li>
+        </ul>
+    </main>
+</div>
+{% endblock body %}

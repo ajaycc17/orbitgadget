@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+{% block title %}About Me{% endblock title %} 
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block metaDesc %}Hi! I am Ajay Choudhury. I regularly add content out of my knowledge and experience on this blog. Here is a quick introduction about me and my fields of interest.{% endblock metaDesc %}
+{% block metatags %}/about/{% endblock metatags %}
+{% block authblock %}OrbitGadget{% endblock authblock %}
+{% block ogurl %}/about/{% endblock ogurl %}
+{% block ogtitle %}About{% endblock ogtitle %}
+{% block ogthumb %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock ogthumb %}
+{% block ogthumbalt %}About{% endblock ogthumbalt %}
+{% block twimage %}https://api.orbitgadget.com/orbitfiles/staticfiles/images/hero.png{% endblock twimage %}
+{% block twimalt %}About{% endblock twimalt %}
+{% block schemaBlock %}
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "Home",
+        "item": "https://orbitgadget.com/"  
+    },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "About",
+        "item": "https://orbitgadget.com/about/"  
+    }]
+    }
+</script>
+{% endblock schemaBlock %}
+{% block body %}
+<!-- header -->
+<section class="text-white body-font mx-auto bg-gray-900">
+    <div class="px-2 md:px-4 2xl:px-36 py-8">
+        <div class="sm:w-3/4 mx-auto text-center">
+            <h1 class="text-2xl font-heads font-bold pb-2 text-yellow-400">About Me</h1>
+            <p class="font-medium pb-4">Hi! I am <span class="text-sky-400 font-heads font-semibold">Ajay Choudhury</span>. I regularly add content out of my knowledge and experience on this blog. Here is a quick introduction about me and my fields of interest.</p>
+            <p class="mb-0">
+                <a href="/portfolio">
+                    <button type="button" class="px-3 py-2 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-green-400 hover:bg-green-500">Portfolio</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+<!-- content section -->
+<div class="body-font mx-auto bg-gray-800">
+    <main class="og-content px-2 md:px-4 2xl:px-60 py-8 md:py-12 text-white">
+        <p>
+            We will be sharing our whole story later on, about how we started with this site, what are our goals, how we are moving towards our goals, what we do, how we manage everything and much more about us here. So if you like our content and our way of presenting it you can follow me on <a href="https://twitter.com/ajaycc17" target="_blank" rel="noopener noreferrer">Twitter</a> and <a href="https://twitter.com/ajaycc17" target="_blank" rel="noopener noreferrer">Instagram</a>. You can bookmark OrbitGadget for more fresh contents from us.
+        </p>
+    </main>
+</div>
+{% endblock body %}

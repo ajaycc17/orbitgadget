@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load account %}
+{% user_display user as user_display %}
+<div class="max-w-md mx-auto">
+    <p class="text-center mb-6 bg-gray-700 p-2 rounded-xl">
+        <strong class="text-sky-400"><i class="fa-solid fa-circle-info pr-2"></i>{% trans "Note" %}:</strong> {% blocktrans %}You are already logged in as <span class="text-lime-400 font-heads font-semibold">{{ user_display }}</span>.{% endblocktrans %}
+    </p>
+</div>

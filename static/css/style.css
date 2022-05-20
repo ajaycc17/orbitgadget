@@ -1,0 +1,170 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+/* colors */
+:root {
+    --gray-800: #1f2937;
+    --gray-600: #475569;
+    --sky-400: #38bdf8;
+    --lime-400: #a3e635;
+    --white: #fff;
+    --yellow-400: #facc15;
+    --black: #000;
+}
+body {
+    background-color: var(--gray-800);
+}
+/* pages and formatting */
+.og-auth h2,
+.og-content h2,
+.og-auth h3,
+.og-content h3,
+.og-auth h4,
+.og-content h4,
+.og-auth h5,
+.og-content h5,
+.og-auth h6,
+.og-content h6 {
+    font-family: "Space Grotesk", sans-serif;
+}
+.og-content h2 {
+    font-size: 24px;
+    line-height: 1.3em;
+    font-weight: 600;
+    color: var(--sky-400);
+    margin: 15px 0;
+}
+.og-content h3 {
+    font-size: 20px;
+    line-height: 1.3em;
+    color: var(--lime-400);
+    margin: 15px 0;
+    font-weight: 500;
+}
+.og-content h4,
+.og-content h5 {
+    font-size: 17px;
+    color: var(--white);
+}
+.og-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.6;
+}
+.og-content li {
+    line-height: 1.6em;
+}
+.og-content li + li {
+    padding-top: 10px;
+}
+.og-content ul {
+    padding-left: 1.5rem;
+}
+p code {
+    font-size: 1em;
+    background-color: var(--sky-400);
+    color: var(--white);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+a {
+    text-decoration: none;
+}
+.og-content a:hover {
+    color: var(--yellow-400);
+}
+.og-content a {
+    font-weight: 500;
+    color: var(--yellow-400);
+    border-bottom: solid 1px var(--gray-600);
+}
+.og-content p {
+    line-height: 1.6em;
+}
+.og-content ul,
+ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.og-content ul li,
+ol li {
+    padding: 12px 0 12px 25px;
+    position: relative;
+    word-wrap: break-word;
+    counter-increment: steps;
+}
+.og-content ol li {
+    padding: 12px 0 12px 32px;
+}
+.og-content ul li + li,
+ol li + li {
+    border-top: 1px solid var(--gray-600);
+}
+.og-content ul li:before {
+    content: "\f101";
+    color: var(--yellow-400);
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    padding-right: 10px;
+    display: block;
+    position: absolute;
+    left: 0;
+}
+.og-content ol li:before {
+    content: counter(steps);
+    font-family: "Space Grotesk", sans-serif;
+    place-items: center;
+    background: var(--yellow-400);
+    color: var(--black);
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    display: inline-flex;
+    position: absolute;
+    left: 0;
+    font-weight: 500;
+    font-size: 13px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+.active {
+    color: var(--yellow-400);
+}
+/* media queries */
+@media (max-width: 767.98px) {
+    .fullWidth {
+        width: 100%;
+    }
+    .og-content h2 {
+        font-size: 20px;
+    }
+    .og-content h3 {
+        font-size: 18px;
+    }
+}
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--gray-600);
+    border-radius: 0;
+    background: var(--gray-600);
+    border-radius: 16px;
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%),
+        inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+::-webkit-scrollbar-track {
+    background: var(--gray-800);
+}
+/* hide scrollbar in navbar menu - chrome, opera, safari */
+.fullWidth::-webkit-scrollbar {
+    display: none;
+}
+.fullWidth {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
