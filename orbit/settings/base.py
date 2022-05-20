@@ -36,21 +36,6 @@ INTERNAL_IPS = [
 
 LOGIN_REDIRECT_URL = '/'
 
-# Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'APP': {
-            'client_id': '336781927713-8vqcj9tluh20l4mgclmja9e93d9bdep7.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
-}
-
 # npm
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 

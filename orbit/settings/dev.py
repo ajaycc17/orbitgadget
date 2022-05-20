@@ -38,3 +38,18 @@ EMAIL_HOST_USER = 'orbitgadget@gmail.com'
 with open('E:/OrbitGadget/credentials/email_pass.txt') as h:
     EMAIL_HOST_PASSWORD = h.read().strip()
     
+# oauth
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'APP': {
+            'client_id': '336781927713-8vqcj9tluh20l4mgclmja9e93d9bdep7.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}

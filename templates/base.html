@@ -28,11 +28,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.ico' %}" />
     <!-- external css -->
     {% tailwind_css %}
-    {% comment %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" /> 
-      {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
     <link rel="stylesheet" href="{% static 'css/prism.css' %}">
     <!-- schema -->
     {% block schemaBlock %}{% endblock schemaBlock %}
@@ -52,7 +48,7 @@
   </head>
   <body>
     <!--navbar-->
-    <header class="text-white bg-darker body-font">
+    <header class="fixed w-full z-50 text-white bg-darker body-font">
       <div class="px-0 md:px-4 2xl:px-36 flex flex-wrap pt-2 md:py-3 pb-0 flex-col md:flex-row">
         <div class="fullWidth md:mr-8 flex items-center justify-between pb-2 md:pb-0 md:px-0 px-2 md:border-none border-b-2 border-dashed border-gray-700">
           <a href="/" class="flex items-center">
@@ -109,7 +105,7 @@
       </div>
     </header>
     <!--accounts-menu-->
-    <div id="log-menu" class="z-50 hidden text-gray-200 bg-darker fixed right-0 border-t-2 border-dashed border-gray-700 sm:border-t-0 sm:w-72 w-full py-2 sm:px-3 px-2">
+    <div id="log-menu" class="md:top-[54px] top-[84px] z-40 hidden text-gray-200 bg-darker fixed right-0 border-t-2 border-dashed border-gray-700 sm:border-t-0 sm:w-72 w-full py-2 sm:px-3 px-2">
       <ul class="font-semibold text-sm">
         <a href="/profile/{{user.username}}/">
           <li class="flex items-center justify-between border-b border-gray-700 py-2">
@@ -138,54 +134,61 @@
         </a>
       </ul>
     </div>
-    <!-- messages -->
-    {% for message in messages %}
-    {% if message.tags == "danger" %}
-    <div id="alert-messages" class="flex p-3 bg-red-200" role="alert">
-      <div class="text-sm font-semibold text-red-800">
-        <i class="fa-solid fa-circle-info pr-2"></i><strong>Error:</strong> {{message}}
-      </div>
-      <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-red-200 text-red-600 hover:bg-red-300" onclick="closeMessage()">
-        <i class="fa-regular fa-circle-xmark"></i>
-      </button>
-    </div>
+    <!--except header everything-->
+    {% if user.is_authenticated %}
+    <div class="md:pt-[54px] pt-[84px]">
     {% else %}
-    <div id="alert-messages" class="flex p-3 bg-green-200" role="alert">
-      <div class="text-sm font-semibold text-green-800">
-        <i class="fa-solid fa-circle-info pr-2"></i><strong>{{message.tags|capfirst}}:</strong> {{message}}
-      </div>
-      <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-green-200 text-green-600 hover:bg-green-300" onclick="closeMessage()">
-        <i class="fa-regular fa-circle-xmark"></i>
-      </button>
-    </div>
+    <div class="md:pt-[52px] pt-[80px]">
     {% endif %}
-    {% endfor %}
-    <!--body-content-->
-    {% block body %}{% endblock body %}
-    <!--new footer-->
-    <section class="text-gray-200 body-font mx-auto bg-darker">
-      <div class="px-2 md:px-4 2xl:px-60 py-12">
-        <div class="text-center">
-          <p class="pb-3 text-sm">
-            <strong>OrbitGadget</strong> — A constructive and and resourceful hub for computer science geeks. Let us achieve together.
-          </p>
-          <p class="text-sm pb-1">
-            <a class="hover:text-yellow-400" href="/privacy-policy">Privacy Policy</a>
-            <strong class="px-1">•</strong>
-            <a class="hover:text-yellow-400" href="/disclosure">Disclosure</a>
-            <strong class="px-1">•</strong>
-            <a class="hover:text-yellow-400" href="/site-terms">Site Terms</a>
-            <strong class="px-1">•</strong>
-            <a class="hover:text-yellow-400" href="/feed/">Atom Feed</a>
-            <strong class="px-1">•</strong>
-            <a class="hover:text-yellow-400" href="/sitemap.xml/">Sitemap</a>
-          </p>
-          <p class="text-sm">
-            Made with ❤️ and Django. OrbitGadget © 2020 - {% now "Y" %}.
-          </p>
+      <!-- messages -->
+      {% for message in messages %}
+      {% if message.tags == "danger" %}
+      <div id="alert-messages" class="flex p-3 bg-red-200" role="alert">
+        <div class="text-sm font-semibold text-red-800">
+          <i class="fa-solid fa-circle-info pr-2"></i><strong>Error:</strong> {{message}}
         </div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-red-200 text-red-600 hover:bg-red-300" onclick="closeMessage()">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
       </div>
-    </section>
+      {% else %}
+      <div id="alert-messages" class="flex p-3 bg-green-200" role="alert">
+        <div class="text-sm font-semibold text-green-800">
+          <i class="fa-solid fa-circle-info pr-2"></i><strong>{{message.tags|capfirst}}:</strong> {{message}}
+        </div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-green-200 text-green-600 hover:bg-green-300" onclick="closeMessage()">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <!--body-content-->
+      {% block body %}{% endblock body %}
+      <!--new footer-->
+      <section class="text-gray-200 body-font mx-auto bg-darker">
+        <div class="px-2 md:px-4 2xl:px-60 py-12">
+          <div class="text-center">
+            <p class="pb-3 text-sm">
+              <strong>OrbitGadget</strong> — A constructive and and resourceful hub for computer science geeks. Let us achieve together.
+            </p>
+            <p class="text-sm pb-1">
+              <a class="hover:text-yellow-400" href="/privacy-policy">Privacy Policy</a>
+              <strong class="px-1">•</strong>
+              <a class="hover:text-yellow-400" href="/disclosure">Disclosure</a>
+              <strong class="px-1">•</strong>
+              <a class="hover:text-yellow-400" href="/site-terms">Site Terms</a>
+              <strong class="px-1">•</strong>
+              <a class="hover:text-yellow-400" href="/feed/">Atom Feed</a>
+              <strong class="px-1">•</strong>
+              <a class="hover:text-yellow-400" href="/sitemap.xml/">Sitemap</a>
+            </p>
+            <p class="text-sm">
+              Made with ❤️ and Django. OrbitGadget © 2020 - {% now "Y" %}.
+            </p>
+          </div>
+        </div>
+      </section>  
+    </div>
   </body>
   <!-- JS block -->
   {% block js %}{% endblock js %}

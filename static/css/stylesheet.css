@@ -9,6 +9,7 @@
     --cust-white: #fff;
     --cust-yellow-400: #facc15;
     --cust-black: #000;
+    --cust-code-back:#00153c;
 }
 body {
     background-color: var(--cust-gray-800);
@@ -47,7 +48,6 @@ body {
 }
 .og-content p {
     margin-bottom: 15px;
-    text-align: justify;
     line-height: 1.6;
 }
 .og-content li {
@@ -60,9 +60,9 @@ body {
     padding-left: 1.5rem;
 }
 p code {
-    font-size: 1em;
-    background-color: var(--cust-sky-400);
-    color: var(--cust-white);
+    font-size: 0.9em;
+    background-color: var(--cust-code-back);
+    color: var(--cust-sky-400);
     padding: 0 5px;
     border-radius: 5px;
 }
@@ -79,6 +79,7 @@ a {
 }
 .og-content p {
     line-height: 1.6em;
+    text-align: justify;
 }
 .og-content ul,
 ol {

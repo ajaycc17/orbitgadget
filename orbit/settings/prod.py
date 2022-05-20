@@ -94,3 +94,19 @@ SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# oauth
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'APP': {
+            'client_id': '680294717219-lu3n2hvlj6j0pfmk67oseblvdp6asreq.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}

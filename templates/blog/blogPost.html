@@ -108,7 +108,7 @@
       <div class="mb-3">
         <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="w-full">
       </div>
-      <article class="pt-2 og-content text-white">
+      <article class="w-full pt-2 og-content text-white">
         {{post.content|safe}}
       </article>
       <!-- anonymous likes for article -->
@@ -294,7 +294,7 @@
             {% for recommend in recommended %}
             <a class="flex items-center py-2" href="/blog/{{recommend.slug}}">
               <i class="fa-solid fa-circle-arrow-right pr-3 text-purple-500 text-xl"></i>
-              <p class="mb-0 fw-500 font-heads font-semibold lg:text-lg leading-5 text-white">{{recommend.title}}</p>
+              <p class="mb-0 fw-500 font-heads font-semibold leading-5 text-white">{{recommend.title}}</p>
             </a>
             {% endfor %}
           </div>
