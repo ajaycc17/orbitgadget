@@ -2,16 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 /* colors */
 :root {
-    --gray-800: #1f2937;
-    --gray-600: #475569;
-    --sky-400: #38bdf8;
-    --lime-400: #a3e635;
-    --white: #fff;
-    --yellow-400: #facc15;
-    --black: #000;
+    --cust-gray-800: #1f2937;
+    --cust-gray-600: #475569;
+    --cust-sky-400: #38bdf8;
+    --cust-lime-400: #a3e635;
+    --cust-white: #fff;
+    --cust-yellow-400: #facc15;
+    --cust-black: #000;
 }
 body {
-    background-color: var(--gray-800);
+    background-color: var(--cust-gray-800);
 }
 /* pages and formatting */
 .og-auth h2,
@@ -30,20 +30,20 @@ body {
     font-size: 24px;
     line-height: 1.3em;
     font-weight: 600;
-    color: var(--sky-400);
+    color: var(--cust-sky-400);
     margin: 15px 0;
 }
 .og-content h3 {
     font-size: 20px;
     line-height: 1.3em;
-    color: var(--lime-400);
+    color: var(--cust-lime-400);
     margin: 15px 0;
     font-weight: 500;
 }
 .og-content h4,
 .og-content h5 {
     font-size: 17px;
-    color: var(--white);
+    color: var(--cust-white);
 }
 .og-content p {
     margin-bottom: 15px;
@@ -61,8 +61,8 @@ body {
 }
 p code {
     font-size: 1em;
-    background-color: var(--sky-400);
-    color: var(--white);
+    background-color: var(--cust-sky-400);
+    color: var(--cust-white);
     padding: 0 5px;
     border-radius: 5px;
 }
@@ -70,12 +70,12 @@ a {
     text-decoration: none;
 }
 .og-content a:hover {
-    color: var(--yellow-400);
+    color: var(--cust-yellow-400);
 }
 .og-content a {
     font-weight: 500;
-    color: var(--yellow-400);
-    border-bottom: solid 1px var(--gray-600);
+    color: var(--cust-yellow-400);
+    border-bottom: solid 1px var(--cust-gray-600);
 }
 .og-content p {
     line-height: 1.6em;
@@ -99,11 +99,11 @@ ol li {
 }
 .og-content ul li + li,
 ol li + li {
-    border-top: 1px solid var(--gray-600);
+    border-top: 1px solid var(--cust-gray-600);
 }
 .og-content ul li:before {
     content: "\f101";
-    color: var(--yellow-400);
+    color: var(--cust-yellow-400);
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
     padding-right: 10px;
@@ -115,8 +115,8 @@ ol li + li {
     content: counter(steps);
     font-family: "Space Grotesk", sans-serif;
     place-items: center;
-    background: var(--yellow-400);
-    color: var(--black);
+    background: var(--cust-yellow-400);
+    color: var(--cust-black);
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
@@ -130,7 +130,7 @@ ol li + li {
     margin-top: 4px;
 }
 .active {
-    color: var(--yellow-400);
+    color: var(--cust-yellow-400);
 }
 /* media queries */
 @media (max-width: 767.98px) {
@@ -150,15 +150,15 @@ ol li + li {
     height: 3px;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--gray-600);
+    background: var(--cust-gray-600);
     border-radius: 0;
-    background: var(--gray-600);
+    background: var(--cust-gray-600);
     border-radius: 16px;
     box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%),
         inset -2px -2px 2px rgb(0 0 0 / 25%);
 }
 ::-webkit-scrollbar-track {
-    background: var(--gray-800);
+    background: var(--cust-gray-800);
 }
 /* hide scrollbar in navbar menu - chrome, opera, safari */
 .fullWidth::-webkit-scrollbar {
