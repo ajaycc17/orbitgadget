@@ -62,6 +62,10 @@ def blogPost(request, slug):
     if post:
         # reading time calculation: 250 word per minute
         content = post.content
+        if (post.membership == True):
+            member = 1
+        else:
+            member = 0
         res = len(content.split())
         readTime = math.ceil(res/250)
         # comments
@@ -95,7 +99,7 @@ def blogPost(request, slug):
         topics = Topic.objects.all()
 
         context = {'post': post, 'comments': comments, 'user': request.user,
-                   'repDict': repDict, 'recommended': recommend, 'readTime': readTime, 'nextPost': BlogPost.objects.all().filter(sno=n).first(), 'prevPost': BlogPost.objects.all().filter(publish=True, sno=p).first(), 'topics': topics}
+                   'repDict': repDict, 'recommended': recommend, 'readTime': readTime, 'nextPost': BlogPost.objects.all().filter(sno=n).first(), 'prevPost': BlogPost.objects.all().filter(publish=True, sno=p).first(), 'topics': topics, 'member':member}
         return render(request, 'blog/blogPost.html', context)
 
     elif catpost.count() != 0:

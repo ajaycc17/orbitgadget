@@ -31,3 +31,29 @@ def inarticle_ads(value):
                 j += 1
             value = "</p>".join(paragraphs)
     return value
+
+@register.filter
+def two_para(value):
+    paragraphs = value.split("</p>")
+    for i in range(2):
+        if i == 0:
+            content = paragraphs[i] + "</p>"
+        else:
+            content = content + paragraphs[i] + "</p>"
+    # remove links from content
+    paragraphs = content.split("<a")
+    content = paragraphs[0]
+    for i in range(1, len(paragraphs)):
+        for j in range(len(paragraphs[i])):
+            temp = paragraphs[i]
+            if (temp[j] == '>'):
+                j=j+1
+                paragraphs[i] = temp[j:]
+                break
+        content = content + paragraphs[i]
+    paragraphs = content.split("</a>")
+    content = ""
+    for i in range(len(paragraphs)):
+        content = content + paragraphs[i]
+    return content
+
