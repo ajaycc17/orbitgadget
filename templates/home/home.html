@@ -62,11 +62,13 @@
                     </button>
                 </a>
             </div>
+            {% if not user.is_authenticated %}
             <a href="/accounts/google/login/?process=login&next={{request.path}}">
                 <button type="button" class="mt-2 w-full text-white focus:outline-none font-semibold font-heads rounded-lg text-xs sm:text-sm px-3 py-1.5 mb-2 flex items-center justify-center bg-blue-700 hover:bg-blue-800">
                   <i class="fa-brands fa-google pr-2"></i>Sign in with Google
                 </button>
             </a>
+            {% endif %}
         </div>
         <div class="md:w-1/2 w-full w-max-lg flex justify-center">
             <img src="{% static 'images/hero.png' %}" alt="OrbitGadget Hero" width="auto" height="auto" layout="responsive">
