@@ -44,7 +44,7 @@
             <div class="block max-w-lg mx-auto pb-2">
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
+                        <i class="bi bi-search text-gray-300"></i>
                     </div>
                     <form method="get" action="/search/" class="d-flex mb-3">
                         <input type="search" class="border-gray-700 text-sm rounded-lg block w-full pl-10 p-2.5 bg-gray-700 placeholder-gray-300 text-white" name="query" id="query" placeholder="Search for articles, guides, tutorials...">
@@ -63,7 +63,7 @@
 <section class="body-font mx-auto bg-gray-800">
     <div class="px-2 md:px-4 2xl:px-36 pt-8 md:pt-12">
         <h2 class="font-semibold font-heads uppercase text-lg text-yellow-400 mb-6">
-            <i class="fa-solid fa-circle-check text-lime-400 pr-2"></i>Recent Articles
+            <i class="bi bi-check-circle-fill text-lime-400 pr-2"></i>Recent Articles
         </h2>
         <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-4 pb-12 md:pb-16">
             {% for post in allPosts %}
@@ -82,7 +82,7 @@
                                 </a>
                                 {% if post.membership %}
                                 <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-green-600 ml-2 text-white">
-                                    <i class="fa-solid fa-star text-xs pr-1"></i>Member
+                                    <i class="bi bi-star-fill text-xs pr-1"></i>Member
                                 </span>
                                 {% endif %}
                             </div>

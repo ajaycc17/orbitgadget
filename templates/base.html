@@ -28,8 +28,9 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.ico' %}" />
     <!-- external css -->
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
-    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+    <link rel="preload stylesheet" href="{% static 'css/stylesheet.css' %}" as="style">
+    <link rel="preload stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" as="style">
+    <link rel="preload stylesheet" href="{% static 'css/prism.css' %}" as="style">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,12 +74,12 @@
             <span class="sm:block hidden font-heads font-semibold text-gray-300 text-sm pl-2">
               {{user.username}}
             </span>
-            <i class="fa-solid fa-caret-down pl-1"></i>
+            <i class="bi bi-caret-down-fill pl-1"></i>
           </span>
           {% else %}
           <span class="md:hidden block">
             <a class="pl-2" href="/accounts/login/?next={{request.path}}">
-              <i class="fa-solid fa-circle-user text-xl"></i>
+              <i class="bi bi-person-circle text-xl"></i>
             </a>
           </span>
           {% endif %}
@@ -107,7 +108,7 @@
           <span class="font-heads font-semibold text-gray-300 text-sm pl-2">
             {{user.username}}
           </span>
-          <i class="fa-solid fa-caret-down pl-1"></i>
+          <i class="bi bi-caret-down-fill pl-1"></i>
         </span>
         {%else%}
         <a href="/accounts/login/?next={{request.path}}" class="md:block hidden py-1 px-3 font-semibold font-heads text-sm text-center text-white rounded-lg focus:outline-none bg-green-600 hover:bg-green-700">
@@ -121,27 +122,27 @@
       <ul class="font-semibold text-sm">
         <a href="/profile/{{user.username}}/">
           <li class="flex items-center justify-between border-b border-gray-700 py-2">
-            <span><i class="fa-regular fa-circle-user pr-2 text-lime-400"></i>Profile</span><i class="fa-solid fa-chevron-right"></i>
+            <span><i class="bi bi-person-circle pr-2 text-lime-400"></i>Profile</span><i class="bi bi-chevron-right"></i>
           </li>
         </a>
         <a href="/accounts/email/">
           <li class="flex items-center justify-between border-b border-gray-700 py-2">
-            <span><i class="fa-solid fa-at pr-2 text-lime-400"></i>Add Email</span><i class="fa-solid fa-chevron-right"></i>
+            <span><i class="bi bi-at pr-2 text-lime-400"></i>Add Email</span><i class="bi bi-chevron-right"></i>
           </li>
         </a>
         <a href="/accounts/password/change/">
           <li class="flex items-center justify-between border-b border-gray-700 py-2">
-            <span><i class="fa-solid fa-unlock pr-2 text-lime-400"></i>Change Password</span><i class="fa-solid fa-chevron-right"></i>
+            <span><i class="bi bi-unlock-fill pr-2 text-lime-400"></i>Change Password</span><i class="bi bi-chevron-right"></i>
           </li>
         </a>
         <a href="/accounts/password/reset/">
           <li class="flex items-center justify-between border-b border-gray-700 py-2">
-            <span><i class="fa-solid fa-key pr-2 text-lime-400"></i>Reset Password</span><i class="fa-solid fa-chevron-right"></i>
+            <span><i class="bi bi-key-fill pr-2 text-lime-400"></i>Reset Password</span><i class="bi bi-chevron-right"></i>
           </li>
         </a>
         <a href="/accounts/logout/?next={{request.path}}">
           <li class="flex items-center justify-between py-2">
-            <span><i class="fa-solid fa-right-from-bracket pr-2 text-lime-400"></i>Sign Out</span><i class="fa-solid fa-chevron-right"></i>
+            <span><i class="bi bi-arrow-bar-right pr-2 text-lime-400"></i>Sign Out</span><i class="bi bi-chevron-right"></i>
           </li>
         </a>
       </ul>
@@ -157,19 +158,19 @@
       {% if message.tags == "danger" %}
       <div id="alert-messages" class="flex p-3 bg-red-200" role="alert">
         <div class="text-sm font-semibold text-red-800">
-          <i class="fa-solid fa-circle-info pr-2"></i><strong>Error:</strong> {{message}}
+          <i class="bi bi-info-circle-fill pr-2"></i><strong>Error:</strong> {{message}}
         </div>
         <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-red-200 text-red-600 hover:bg-red-300" onclick="closeMessage()">
-          <i class="fa-regular fa-circle-xmark"></i>
+          <i class="bi bi-x-circle-fill"></i>
         </button>
       </div>
       {% else %}
       <div id="alert-messages" class="flex p-3 bg-green-200" role="alert">
         <div class="text-sm font-semibold text-green-800">
-          <i class="fa-solid fa-circle-info pr-2"></i><strong>{{message.tags|capfirst}}:</strong> {{message}}
+          <i class="bi bi-info-circle-fill pr-2"></i><strong>{{message.tags|capfirst}}:</strong> {{message}}
         </div>
         <button type="button" class="ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 flex items-center justify-center h-8 w-8 bg-green-200 text-green-600 hover:bg-green-300" onclick="closeMessage()">
-          <i class="fa-regular fa-circle-xmark"></i>
+          <i class="bi bi-x-circle-fill"></i>
         </button>
       </div>
       {% endif %}
@@ -204,8 +205,6 @@
   </body>
   <!-- JS block -->
   {% block js %}{% endblock js %}
-  <!-- fontawesome -->
-  <script src="https://kit.fontawesome.com/cd04e03c36.js" crossorigin="anonymous"></script>
   <!-- prism js -->
   <script src="{% static 'js/prism.js' %}"></script>
   <!--accounts-menu-js-->

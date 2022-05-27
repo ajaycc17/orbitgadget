@@ -65,7 +65,7 @@
             {% if not user.is_authenticated %}
             <a href="/accounts/google/login/?process=login&next={{request.path}}">
                 <button type="button" class="mt-2 w-full text-white focus:outline-none font-semibold font-heads rounded-lg text-xs sm:text-sm px-3 py-1.5 mb-2 flex items-center justify-center bg-blue-700 hover:bg-blue-800">
-                  <i class="fa-brands fa-google pr-2"></i>Sign in with Google
+                    <i class="bi bi-google pr-2"></i>Sign in with Google
                 </button>
             </a>
             {% endif %}
@@ -81,7 +81,7 @@
         <div class="md:text-left w-full">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="font-semibold font-heads uppercase text-lg text-yellow-400 ">
-                    <i class="fa-solid fa-circle-check text-lime-400 pr-2"></i>Browse Topics
+                    <i class="bi bi-check-circle-fill text-lime-400 pr-2"></i>Browse Topics
                 </h2>
                 <a href="/blog/topics">
                     <button type="button" class="px-3 py-1 text-sm font-semibold font-heads text-center text-white rounded-lg hover:bg-green-700 focus:outline-none bg-green-600">View All →</button>
@@ -117,7 +117,7 @@
     <div class="px-2 md:px-4 2xl:px-36 py-8 md:py-12">
         <div class="flex items-center justify-between mb-6">
             <h2 class="font-semibold font-heads uppercase text-lg text-yellow-400 ">
-                <i class="fa-solid fa-circle-check text-lime-400 pr-2"></i>Recent Articles
+                <i class="bi bi-check-circle-fill text-lime-400 pr-2"></i>Recent Articles
             </h2>
             <a href="/blog">
                 <button type="button" class="px-3 py-1 text-sm font-semibold font-heads text-center text-white rounded-lg hover:bg-green-700 focus:outline-none bg-green-600">View All →</button>
@@ -140,7 +140,7 @@
                                 </a>
                                 {% if post.membership %}
                                 <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-green-600 ml-2 text-white">
-                                    <i class="fa-solid fa-star text-xs pr-1"></i>Member
+                                    <i class="bi bi-star-fill text-xs pr-1"></i>Member
                                 </span>
                                 {% endif %}
                             </div>
@@ -173,7 +173,7 @@
         <div class="md:text-left w-full">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="font-semibold font-heads uppercase text-lg text-yellow-400 ">
-                    <i class="fa-solid fa-circle-check text-lime-400 pr-2"></i>Projects
+                    <i class="bi bi-check-circle-fill text-lime-400 pr-2"></i>Projects
                 </h2>
                 <a href="/projects">
                     <button type="button" class="px-3 py-1 text-sm font-semibold font-heads text-center text-white rounded-lg hover:bg-green-700 focus:outline-none bg-green-600">View All →</button>
@@ -191,7 +191,7 @@
                         <p class="mb-6 font-normal text-white">A random password generator made with Python.</p>
                         <div class="flex items-center justify-between">
                             <a href="https://github.com/ajaycc17/password-generator" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
-                                <i class="fa-brands fa-github"></i>
+                                <i class="bi bi-github"></i>
                             </a>
                             <a href="/projects/password-generator" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
                                 See →
@@ -210,7 +210,7 @@
                         <p class="mb-6 font-normal text-white">A drum kit simulation made using JS, playable with mouse or keyboard.</p>
                         <div class="flex items-center justify-between">
                             <a href="#" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
-                                <i class="fa-brands fa-github"></i>
+                                <i class="bi bi-github"></i>
                             </a>
                             <a href="/projects/drum-kit" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
                                 See →
@@ -229,7 +229,7 @@
                         <p class="mb-6 font-normal text-white">A web application made with JavaScript to count words.</p>
                         <div class="flex items-center justify-between">
                             <a href="#" class="text-sm font-semibold mr-2 p-1 px-2 rounded-full bg-gray-600 text-white">
-                                <i class="fa-brands fa-github"></i>
+                                <i class="bi bi-github"></i>
                             </a>
                             <a href="/projects/wordcounter/" class="py-1 px-3 text-sm font-semibold font-heads text-center text-black rounded-lg focus:outline-none bg-sky-400 hover:bg-sky-500">
                                 See →
