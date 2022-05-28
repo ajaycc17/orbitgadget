@@ -62,7 +62,7 @@
   <body>
     <!--navbar-->
     <header class="fixed w-full z-50 text-white bg-darker body-font">
-      <div class="px-0 md:px-4 2xl:px-36 flex flex-wrap pt-2 md:py-3 pb-0 flex-col md:flex-row">
+      <div class="px-0 md:px-4 max-w-6xl mx-auto flex flex-wrap pt-2 md:py-3 pb-0 flex-col md:flex-row">
         <div class="fullWidth md:mr-8 flex items-center justify-between pb-2 md:pb-0 md:px-0 px-2 md:border-none border-b-2 border-dashed border-gray-700">
           <a href="/" class="flex items-center">
             <img src="{% static 'images/logo.svg' %}" alt="OrbitGadget" width="130" height="auto">
@@ -178,8 +178,8 @@
       <!--body-content-->
       {% block body %}{% endblock body %}
       <!--new footer-->
-      <section class="text-gray-200 body-font mx-auto bg-darker">
-        <div class="px-2 md:px-4 2xl:px-60 py-12">
+      <section class="text-gray-200 body-font bg-darker">
+        <div class="px-2 md:px-4 max-w-6xl mx-auto py-12">
           <div class="text-center">
             <p class="pb-3 text-sm">
               <strong>OrbitGadget</strong> — A constructive and and resourceful hub for computer science geeks. Let us achieve together.

@@ -69,8 +69,8 @@
 {% endblock schemaBlock %}
 {% block body %}
 <!-- post-header -->
-<section class="body-font mx-auto">
-  <div class="px-2 md:px-4 2xl:px-36 pt-6 text-left">
+<section class="body-font">
+  <div class="px-2 md:px-4 max-w-6xl mx-auto pt-6 text-left">
     <!--breadcrumb-->
     <div>
       <nav>
@@ -112,17 +112,18 @@
   </div>
 </section>
 <!--post-content-->
-<section class="body-font mx-auto">
-  <div class="px-2 md:px-4 2xl:px-36 flex pt-2 md:flex-row flex-col">
+<section class="body-font">
+  <div class="px-2 md:px-4 max-w-6xl mx-auto flex pt-2 md:flex-row flex-col">
     <div class="lg:flex-grow md:w-2/3 md:pr-4 lg:pr-6 flex flex-col md:items-start md:text-left">
       <!--post image-->
       <div class="mb-3 w-full">
         <img src="{{post.thumbnail.url}}" alt="{{post.title}}" class="w-full">
       </div>
       <article itemprop="articleBody" class="w-full pt-2 mb-3 og-content text-white">
+        {% load adsense_tags %}
         {% if member == 1 %}
         {% if user.is_authenticated %}
-        {{post.content|safe}}
+        {{post.content|inarticle_ads|safe}}
       </article>
       <!-- anonymous likes for article -->
       <div class="mb-3 py-2">
@@ -140,7 +141,6 @@
       </div>
         {% else %}
         <div class="text-transparent bg-clip-text bg-gradient-to-b from-white">
-          {% load adsense_tags %}
           {{post.content|two_para|safe}}
         </div>
       </article>
@@ -170,7 +170,7 @@
       </div>
         {% endif %}
         {% else %}
-        {{post.content|safe}}
+        {{post.content|inarticle_ads|safe}}
       </article>
       <!-- anonymous likes for article -->
       <div class="mb-3 py-2">

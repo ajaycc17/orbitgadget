@@ -78,12 +78,11 @@ a {
 }
 .og-content p {
     line-height: 1.6em;
-    text-align: justify;
 }
 .og-content ul,
 ol {
     list-style: outside none none;
-    margin: 0;
+    margin: 0 0 10px 0;
     padding: 0;
 }
 .og-content ul li,
@@ -147,6 +146,7 @@ ol li + li {
     background: var(--cust-darker);
     padding: 0.8rem;
     border-radius: 15px;
+    margin-bottom: 15px;
 }
 .mce-toc h3 {
     border-bottom: dashed 2px var(--cust-gray-600);
