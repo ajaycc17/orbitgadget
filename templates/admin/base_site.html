@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}
+    {% if subtitle %}
+        {{ subtitle }} | 
+    {% endif %}
+    {{ title }} | {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block branding %}
+    <a id="site-name" href="{% url 'admin:index' %}" class="mr-2">
+        <img src="{% static 'images/logo.svg' %}" alt="OrbitGadget" width="130" height="auto">
+    </a>
+{% endblock %}
+<script src="https://cdn.tiny.cloud/1/w0dnoedqus44dang0u1zlt62jdrg5u0ezxrm9ala73p83qjv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+{% block nav-global %}{% endblock %}

@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # print("base dir path", BASE_DIR)
 
 # Application definition
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'cachalot',
+    'tinymce',
 ]
 
 # tailwind
@@ -123,3 +124,56 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
+# tinymce
+TINYMCE_COMPRESSOR = False
+# TINYMCE_JS_ROOT = os.path.join(STATICFILES_DIRS[0], "tinymce")
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "550px",
+    "referrer_policy": 'origin',
+    "menubar": "file edit view insert format tools table help",
+    "plugins": 
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code codesample fullscreen insertdatetime media nonbreaking table emoticons template paste help quickbars toc",
+    "toolbar":
+            "undo redo | toc | styleselect | codesample | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist fullscreen | link image | print preview media outdent indent | forecolor backcolor emoticons | help",
+    "custom_undo_redo_levels": 10,
+    "codesample_languages": [
+        { "text": 'HTML/XML', "value": 'markup' },
+        { "text": 'JavaScript', "value": 'javascript' },
+        { "text": 'CSS', "value": 'css' },
+        { "text": 'PHP', "value": 'php' },
+        { "text": 'Ruby', "value": 'ruby' },
+        { "text": 'Python', "value": 'python' },
+        { "text": 'Java', "value": 'java' },
+        { "text": 'C', "value": 'c' },
+        { "text": 'C#', "value": 'csharp' },
+        { "text": 'C++', "value": 'cpp' },
+        { "text": 'Shell', "value": 'shell' },
+        { "text": 'Arduino', "value": 'arduino' },
+        { "text": 'ASP.NET', "value": 'aspnet' },
+        { "text": 'Djano/Jinja2', "value": 'django' },
+        { "text": 'Docker', "value": 'docker' },
+        { "text": 'Git', "value": 'git' },
+        { "text": 'Go', "value": 'go' },
+        { "text": 'MongoDB', "value": 'mongodb' },
+        { "text": 'MATLAB', "value": 'matlab' },
+        { "text": 'Kotlin', "value": 'kotlin' },
+        { "text": 'JSON', "value": 'json' },
+        { "text": 'GitIgnore', "value": 'ignore' },
+        { "text": 'GraphQL', "value": 'graphql' },
+        { "text": 'React JSX', "value": 'jsx' },
+        { "text": 'SCSS', "value": 'scss' },
+        { "text": 'SQL', "value": 'sql' },
+        { "text": 'TypeScript', "value": 'typescript' },
+        { "text": 'Vim', "value": 'vim' },
+        { "text": 'VHDL', "value": 'vhdl' },
+    ],
+    "content_css": 'css/content.css',
+    "toc_depth": 3,
+    "toc_header": 'h3',
+    "quickbars_insert_toolbar": 'h2 h3 codesample image table | hr pagebreak',
+    "quickbars_selection_toolbar": 'bold italic | formatselect | quicklink formatcode blockquote h2 h3',
+    "fullscreen_native": True,
+    "link_default_protocol": 'https',
+    "default_link_target": '_blank',
+    "image_caption": True,
+}

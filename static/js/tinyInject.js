@@ -9,9 +9,8 @@ script.onload = function () {
     tinymce.init({
         selector: '#id_content',
         height: 550,
-        plugins: [
-            'responsiveImage', 'toc', 'quickbars',
-            'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        plugins: ['responsiveImage', 'toc', 'quickbars',
+            'lists advlist autolink link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
             'table emoticons template paste help', 'codesample'
         ],
@@ -47,16 +46,20 @@ script.onload = function () {
             { text: 'VHDL', value: 'vhdl' },
           ],
         toolbar: 'undo redo | toc | styleselect | codesample | bold italic | alignleft aligncenter alignright alignjustify | ' +
-            'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
             'forecolor backcolor emoticons | help',
         menu: {
-            favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+            favs: { title: 'My Favorites', items: 'code visualaid | searchreplace' }
         },
         menubar: 'favs file edit view insert format tools table help',
         content_css: 'css/content.css',
         toc_depth: 3,
         toc_header: 'h3',
         quickbars_insert_toolbar: 'heading codesample quickimage quicktable | hr pagebreak',
-        quickbars_selection_toolbar: 'bold italic | formatselect | quicklink blockquote h2 h3'
+        quickbars_selection_toolbar: 'bold italic | formatselect | quicklink blockquote h2 h3',
+        fullscreen_native: true,
+        link_default_protocol: 'https',
+        default_link_target: '_blank',
+        image_caption: true
     });
 }

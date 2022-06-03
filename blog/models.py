@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
+from tinymce import models as tinymce_models
 
 
 class Topic(models.Model):
@@ -16,7 +17,7 @@ class Topic(models.Model):
 class BlogPost(models.Model):
     sno = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = tinymce_models.HTMLField()
     author = models.CharField(max_length=100, default='Ajay Choudhury')
     thumbnail = models.ImageField(upload_to='blog')
     category = models.ForeignKey(
