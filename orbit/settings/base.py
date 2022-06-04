@@ -177,3 +177,10 @@ TINYMCE_DEFAULT_CONFIG = {
     "default_link_target": '_blank',
     "image_caption": True,
 }
+# cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'og_cache_table',
+    }
+}
