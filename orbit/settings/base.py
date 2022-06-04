@@ -25,8 +25,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'tailwind',
     'theme',
-    'cachalot',
     'tinymce',
+    # 'cachalot',
 ]
 
 # tailwind

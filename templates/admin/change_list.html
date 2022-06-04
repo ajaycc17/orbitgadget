@@ -3,9 +3,9 @@
 
 {% block extrastyle %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.csss" %}">
+  <!--<link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.csss" %}">-->
   {% if cl.formset %}
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.csss" %}">
+    <!--<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.csss" %}">-->
   {% endif %}
   {% if cl.formset or action_form %}
     <script src="{% url 'admin:jsi18n' %}"></script>
