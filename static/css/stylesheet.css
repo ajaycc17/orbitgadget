@@ -79,6 +79,9 @@ a {
 .og-content p {
     line-height: 1.6em;
 }
+.og-content img {
+    border: 1px solid #374151;
+}
 .og-content ul,
 ol {
     list-style: outside none none;
