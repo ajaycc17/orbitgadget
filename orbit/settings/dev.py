@@ -35,8 +35,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'orbitgadget@gmail.com'
 # change according to folder structure
-with open('E:/OrbitGadget/credentials/email_pass.txt') as h:
-    EMAIL_HOST_PASSWORD = h.read().strip()
+# with open('E:/OrbitGadget/credentials/email_pass.txt') as h:
+#     EMAIL_HOST_PASSWORD = h.read().strip()
     
 # oauth
 # Provider specific settings
